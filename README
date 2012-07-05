@@ -1,0 +1,55 @@
+Images Layout and Composition Module
+====================================
+
+This module handles composing images in arbitrary way on a static (or extendable) canvas.
+
+Basically you must create layout classes that extend Image_Layout and implements the calculate() method. After that you can use those layouts to position images (using html position aboslute and background:clip() properties)
+
+
+class Image_Aspect
+------------------
+
+This class holds the positioning information of a given image. It has two consepts - the "canvas" and the "image". The canvas is the enclosing element, and holds the absolute position of the image. The image is "clipped" by the canvas (using background:clip() css)
+
+                    Canvas
+   ┌──────────────┐⤴
+ ░░│░░░░░░░░░░░░░░│░░
+ ░░│░░░░░░░░░░░░░░│░░
+ ░░│░░░░░░░░░░░░░░│░░
+ ░░│░░░░░░░░░░░░░░│░░⤵ 
+   └──────────────┘   Image
+
+This combination of resizing and croping allows for any image arangement desired. You can even extend Image_Aspect to add rotaiton or 3d stuff.
+
+
+__The canvas:__
+
+You can position and resize the canvas with `canvas_x()`,`canvas_y()`,`canvas_width()`,`canvas_height()`. 
+You can use `canvas_pos($x, $y)` to change x and y at once, and `canvas_dims($width, $height)` to change width and height at once. 
+You can also use `canvas_center($width, $height)` to center the canvas inside a given rectangle
+
+
+__The image:__
+
+The image has a wide array of positioning methods that modify its position and size, relative to the its canvas.
+
+* `x()` Get x
+* `y()` Get y
+* `offset($x, $y)` - Modify x and y
+* `pos($x, $y)` - Get or set x and y
+* `center($width, $height)` - Change the x or y to center the image inside the given rectangle
+* `width()` Get or set the width, keeping the aspect ratio
+* `height()` Get or set the height, keeping the aspect ratio
+* `dims($width, $height)` - Get or set width and height
+* `ratio()` Get the aspect ratio.
+* `is_portrait()` Find out if its a portrait image
+* `is_landscape()` Find out if its a landscape image
+* `rigtht()` Get the right border of the image, or set the position x to it
+* `bottom()` Get the bottom border of the image, or set the position y to it
+* `inflate($width, $height)` Add to the width or height of the image, keeping it in place
+* `constrain($width, $height)` Constrain the image inside the provided rectangle, keeping the aspect ratio
+* `crop($width, $height)` Constrain the image inside the provided rectangle, keeping the aspect ratio, and so that it fills the whole rectangle, cropping it
+
+
+
+
