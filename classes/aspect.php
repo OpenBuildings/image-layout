@@ -3,8 +3,10 @@
 /**
  *  An easy width/height manipulations with preservation of aspect ratio
  *  
- *  @author Ivan K
- *  @since  28.12.2008
+ * @author     Ivan Kerin
+ * @copyright  (c) 2011-2012 OpenBuildings Inc.
+ * @license    http://www.opensource.org/licenses/isc-license.txt
+ * @since  28.12.2008
  */
 class Aspect {
 

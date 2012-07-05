@@ -3,6 +3,10 @@
 /**
  * Add canvas variables (x, y, width, height) useful for working with html img tags
  * Add Css styles generation
+ *
+ * @author     Ivan Kerin
+ * @copyright  (c) 2011-2012 OpenBuildings Inc.
+ * @license    http://www.opensource.org/licenses/isc-license.txt
  */
 class Image_Aspect extends Aspect
 {

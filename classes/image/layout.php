@@ -1,8 +1,14 @@
 <?php
+
 /**
-* Image_Layout class is allows you to get the width/height and position of a collection of images given a selected layout
-* as well as finding out which layout is most appropriate.
-*/
+ * 
+ * Image_Layout class is allows you to get the width/height and position of a collection of images given a selected layout
+ * as well as finding out which layout is most appropriate.
+ * 
+ * @author     Ivan Kerin
+ * @copyright  (c) 2011-2012 OpenBuildings Inc.
+ * @license    http://www.opensource.org/licenses/isc-license.txt
+ */
 abstract class Image_Layout
 {
 	public static function factory($type, array $images = array())

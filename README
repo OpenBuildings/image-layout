@@ -52,4 +52,67 @@ The image has a wide array of positioning methods that modify its position and s
 
 
 
+class Image_Layout
+------------------
+
+You create your own layouts that position images in a certain way. 
+First you'll have to set the width / height of the layout. Then you position the image aspects where you desire.
+
+	<?php
+
+	class Image_Layout_Folder extends Image_Layout
+	{
+		const THUMB_WIDTH = 150;
+		const THUMB_HEIGHT = 100;
+
+		function calculate() 
+		{
+			// Convert image Image_Aspect from Jam Models
+			$this->_images = Image_Layout::aspect_from_model_array($this->_images, $this->field());
+
+			// Place images in 2 columns cropped 150x100 
+			foreach ($this->_images as $i => $image)
+			{
+				$image
+					->canvas_pos(($i %2) * self::THUMB_WIDTH, floor($i / 2) * self::THUMB_HEIGHT)
+					->canvas_dims(self::THUMB_WIDTH, self::THUMB_HEIGHT)
+					->crop(self::THUMB_WIDTH, self::THUMB_HEIGHT);
+			}
+
+			// Set the layout with / height
+			$this->_height = ceil(count($this->_images) / 2);
+			$this->_width  = self::THUMB_WIDTH * 2;
+		}
+	}
+
+
+Usage:
+------
+
+	$layout = Image_Layout::factory('folder', $images);
+
+
+	//HTML Template
+
+	<ul style="<?php echo $layout->style(); ?>">
+		<?php foreach ($layout->aspect() as $aspect): ?>
+			<li style="<?php echo $aspect->canvas_style() ?>">
+				<img style="<?php echo $aspect->style() ?>" src="<?php echo $images[$i]->file->url() />" />
+			</li>
+		<?php endforeach; ?>
+	</ul>
+
+Different types of images:
+--------------------------
+
+Sometimes you want to have images that are of different status, for example cover images you can add them with array keys:
+
+	$layout = Image_Layout::factory('folder', array('cover_image' => $image, 'images' => $images));
+
+And you can access those images later using
+
+	$layout->aspect('cover_image'); // Cover image
+	$layout->aspect('images');      // Images array
+	$layout->aspect('images.0');    // First image
+
 
