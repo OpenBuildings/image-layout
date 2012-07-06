@@ -116,3 +116,6 @@ And you can access those images later using
 	$layout->aspect('images.0');    // First image
 
 
+--------------------------
+Creator: Ivan Kerin
+
