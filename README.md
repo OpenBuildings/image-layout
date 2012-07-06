@@ -11,13 +11,13 @@ class Image_Aspect
 
 This class holds the positioning information of a given image. It has two consepts - the "canvas" and the "image". The canvas is the enclosing element, and holds the absolute position of the image. The image is "clipped" by the canvas (using background:clip() css)
 
-                    Canvas
-   ┌──────────────┐⤴
- ░░│░░░░░░░░░░░░░░│░░
- ░░│░░░░░░░░░░░░░░│░░
- ░░│░░░░░░░░░░░░░░│░░
- ░░│░░░░░░░░░░░░░░│░░⤵ 
-   └──────────────┘   Image
+	                   Canvas
+	  ┌──────────────┐⤴
+	░░│░░░░░░░░░░░░░░│░░
+	░░│░░░░░░░░░░░░░░│░░
+	░░│░░░░░░░░░░░░░░│░░
+	░░│░░░░░░░░░░░░░░│░░⤵ 
+	  └──────────────┘   Image
 
 This combination of resizing and croping allows for any image arangement desired. You can even extend Image_Aspect to add rotaiton or 3d stuff.
 
