@@ -17,7 +17,7 @@ This class holds the positioning information of a given image. It has two consep
 ░░│░░░░░░░░░░░░░░│░░
 ░░│░░░░░░░░░░░░░░│░░
 ░░│░░░░░░░░░░░░░░│░░
-░░│░░░░░░░░░░░░░░│░░⤵ 
+░░│░░░░░░░░░░░░░░│░░⤵
   └──────────────┘   Image
 </pre>
 
@@ -44,8 +44,8 @@ This combination of resizing and css croping allows for any image arangement des
 
 __The canvas:__
 
-You can position and resize the canvas with `canvas_x()`,`canvas_y()`,`canvas_width()`,`canvas_height()`. 
-You can use `canvas_pos($x, $y)` to change x and y at once, and `canvas_dims($width, $height)` to change width and height at once. 
+You can position and resize the canvas with `canvas_x()`,`canvas_y()`,`canvas_width()`,`canvas_height()`.
+You can use `canvas_pos($x, $y)` to change x and y at once, and `canvas_dims($width, $height)` to change width and height at once.
 You can also use `canvas_center($width, $height)` to center the canvas inside a given rectangle
 
 
@@ -75,7 +75,7 @@ The image has a wide array of positioning methods that modify its position and s
 class Image_Layout
 ------------------
 
-You create your own layouts that position images in a certain way. 
+You create your own layouts that position images in a certain way.
 First you'll have to set the width / height of the layout. Then you position the image aspects where you desire.
 
 	<?php
@@ -85,12 +85,12 @@ First you'll have to set the width / height of the layout. Then you position the
 		const THUMB_WIDTH = 150;
 		const THUMB_HEIGHT = 100;
 
-		function calculate() 
+		function calculate()
 		{
 			// Convert image Image_Aspect from Jam Models
 			$this->_images = Image_Layout::aspect_from_model_array($this->_images, $this->field());
 
-			// Place images in 2 columns cropped 150x100 
+			// Place images in 2 columns cropped 150x100
 			foreach ($this->_images as $i => $image)
 			{
 				$image
@@ -137,5 +137,10 @@ And you can access those images later using
 
 
 --------------------------
-Creator: Ivan Kerin
+
+## License
+
+Copyright (c) 2012, OpenBuildings Inc. Developed by Ivan Kerin as part of [clippings.com](http://clippings.com)
+
+Under ICS license, read LICENSE file.
 
